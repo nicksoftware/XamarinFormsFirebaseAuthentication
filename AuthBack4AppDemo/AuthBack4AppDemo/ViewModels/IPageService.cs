@@ -3,6 +3,9 @@ using Xamarin.Forms;
 
 namespace AuthBack4AppDemo.ViewModels
 {
+    /// <summary>
+    /// Author: Hlulani N. Maluleke
+    /// </summary>
     public interface IPageService
     {
         Page page { get; set; }

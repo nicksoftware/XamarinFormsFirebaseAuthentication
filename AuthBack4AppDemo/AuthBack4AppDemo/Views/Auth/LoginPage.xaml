@@ -21,9 +21,8 @@
             <Label.FormattedText>
                 <FormattedString>
                     <FormattedString.Spans>
-                        <Span FontSize="Title" Text="B4A" FontAttributes="Bold"/>
-                        <Span Text=" Authentication " TextColor="Blue" FontAttributes="Italic" FontSize="25"/>
-                        <Span Text="Demo" />
+                        <Span FontSize="Title" Text=" Firebase Authentication Demo" FontAttributes="Bold"/>
+                        <Span Text="by HN Maluleke" FontAttributes="Italic" FontSize="Subtitle"/>
                     </FormattedString.Spans>
                 </FormattedString>
             </Label.FormattedText>

@@ -18,8 +18,17 @@ using AuthBack4AppDemo.Droid;
 [assembly: Dependency(typeof(FirebaseAuthenticator))]
 namespace AuthBack4AppDemo.Droid.Implementions
 {
+    /// <summary>
+    /// Author: Hlulani N. Maluleke
+    /// </summary>
     public class FirebaseAuthenticator : IFirebaseAuthenticator
     {
+        /// <summary>
+        /// Login into firebase 
+        /// </summary>
+        /// <param name="email"> user email </param>
+        /// <param name="password">user password</param>
+        /// <returns></returns>
         public async Task<string> LoginWithEmailPassword(string email, string password)
         {
             var user = await MainActivity.Auth.SignInWithEmailAndPasswordAsync(email, password);
@@ -28,6 +37,13 @@ namespace AuthBack4AppDemo.Droid.Implementions
             return token.Token;
         }
 
+
+        /// <summary>
+        /// Signup to app firebase 
+        /// </summary>
+        /// <param name="email">user email</param>
+        /// <param name="password">user password</param>
+        /// <returns></returns>
         public async Task<string> SignupWithEmailPassword(string email, string password)
         {
             var user = await MainActivity.Auth.CreateUserWithEmailAndPasswordAsync(email, password);

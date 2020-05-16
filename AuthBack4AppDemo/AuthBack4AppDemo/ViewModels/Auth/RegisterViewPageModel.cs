@@ -5,7 +5,7 @@ using Xamarin.Forms;
 namespace AuthBack4AppDemo.ViewModels.Auth
 {
     /// <summary>
-    /// author: Hlulani N. Maluleke
+    /// Author: Hlulani N. Maluleke
     /// </summary>
     public class RegisterViewPageModel : BaseViewModel
     {
@@ -21,7 +21,9 @@ namespace AuthBack4AppDemo.ViewModels.Auth
         #endregion
         #region Properties
 
-
+        /// <summary>
+        /// get or set confirmationPassword
+        /// </summary>
         public string ConfirmPassword
         {
             get { return _confirmPassword; }
@@ -34,6 +36,10 @@ namespace AuthBack4AppDemo.ViewModels.Auth
             }
         }
 
+
+        /// <summary>
+        /// gets or sets  Password
+        /// </summary>
         public string Password
         {
             get { return _password; }
@@ -43,12 +49,19 @@ namespace AuthBack4AppDemo.ViewModels.Auth
             }
         }
 
+
+        /// <summary>
+        /// gets or sets  Username
+        /// </summary>
         public string Username
         {
             get { return _username; }
             set { _username = value; OnPropertyChanged(); }
         }
 
+        /// <summary>
+        /// gets or sets  Property
+        /// </summary>
         public string Email
         {
             get { return _email; }
@@ -61,8 +74,14 @@ namespace AuthBack4AppDemo.ViewModels.Auth
             }
         }
 
-
+        /// <summary>
+        /// gets or sets command Property
+        /// </summary>
         public ICommand RegisterCommand { get; set; }
+
+        /// <summary>
+        /// gets or sets command Property
+        /// </summary>
         public ICommand LoginCommand { get; set; }
         #endregion
 
@@ -73,7 +92,10 @@ namespace AuthBack4AppDemo.ViewModels.Auth
             RegisterCommand = new Command(SignUpButton_Clicked);
             LoginCommand = new Command(LoginButton_Clicked);
         }
-
+        /// <summary>
+        /// Method called when Login button is clicked
+        /// </summary>
+        /// <param name="obj"></param>
         private void LoginButton_Clicked(object obj)
         {
             throw new NotImplementedException();
@@ -81,11 +103,15 @@ namespace AuthBack4AppDemo.ViewModels.Auth
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Method called signup button is clicked
+        /// </summary>
         public async void SignUpButton_Clicked()
         {
 
             if (!(string.IsNullOrEmpty(Email) && string.IsNullOrEmpty(Username) && string.IsNullOrEmpty(Password)))
             {
+                ///Dependency Service for firebase native authentication 
                 var token = await DependencyService.Get<IFirebaseAuthenticator>().SignupWithEmailPassword(Email, Password);
                 await PageService.DisplayAlert("Success", "User Created with token "+token, "Ok");
             }

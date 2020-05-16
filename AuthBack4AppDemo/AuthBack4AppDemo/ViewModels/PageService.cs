@@ -5,14 +5,17 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace AuthBack4AppDemo.ViewModels
-{
+{    
+    /// <summary>
+     /// Author: Hlulani N. Maluleke
+     /// </summary>
     public class PageService : IPageService
     {
         public Page page { get; set; } = Application.Current.MainPage;
 
         public PageService()
         {
-           if(page == null)
+            if (page == null)
                 page = Application.Current.MainPage;
         }
         public async Task PushAsync(Page page)
