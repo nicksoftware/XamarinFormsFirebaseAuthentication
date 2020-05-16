@@ -11,23 +11,13 @@
     </ContentPage.BindingContext>
     <AbsoluteLayout BackgroundColor="Gold">
 
-        <Label Text="Back 4 App Authentication Demo" FontSize="Title"  TextColor="DarkCyan" FontAttributes="Bold"
+        <Label  TextColor="DarkCyan" 
                Margin="30,150,30,0" HorizontalTextAlignment="Center"
                AbsoluteLayout.LayoutBounds="0.5,0.2,1,1"
-               
-               AbsoluteLayout.LayoutFlags="All"
-           HorizontalOptions="Center" >
+               AbsoluteLayout.LayoutFlags="All" FontSize="Title"
+               Text=" Firebase Authentication" FontAttributes="Bold"
+           HorizontalOptions="Center" />
 
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span FontSize="Title" Text=" Firebase Authentication Demo" FontAttributes="Bold"/>
-                        <Span Text="by HN Maluleke" FontAttributes="Italic" FontSize="Subtitle"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-        
         <Frame Opacity="0.9" HasShadow="True"
                        Padding="0"  BackgroundColor="Transparent"
                        AbsoluteLayout.LayoutBounds="0.5,0.5,350,50" 
