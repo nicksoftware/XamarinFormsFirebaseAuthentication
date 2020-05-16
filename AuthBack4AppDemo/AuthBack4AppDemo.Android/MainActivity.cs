@@ -17,9 +17,6 @@ namespace AuthBack4AppDemo.Droid
     {
         public static FirebaseApp app;
          public static FirebaseAuth Auth;
-
-        const string APP_ID = "firestoreproject-c0946";
-        const string API = "AIzaSyBy5tAwUfngYVDMZqgKQpJ8bepllXZDeFo";
         protected override void OnCreate(Bundle savedInstanceState)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
