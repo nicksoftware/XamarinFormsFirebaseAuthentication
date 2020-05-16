@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModel="clr-namespace:AuthBack4AppDemo.ViewModels.Auth"
+             mc:Ignorable="d"
+             x:Class="AuthBack4AppDemo.LoginPage">
+    <ContentPage.BindingContext>
+        <viewModel:LoginPageViewModel/>
+    </ContentPage.BindingContext>
+    <AbsoluteLayout BackgroundColor="Gold">
+
+        <Label Text="Back 4 App Authentication Demo" FontSize="Title"  TextColor="DarkCyan" FontAttributes="Bold"
+               Margin="30,150,30,0" HorizontalTextAlignment="Center"
+               AbsoluteLayout.LayoutBounds="0.5,0.2,1,1"
+               
+               AbsoluteLayout.LayoutFlags="All"
+           HorizontalOptions="Center" >
+
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span FontSize="Title" Text="B4A" FontAttributes="Bold"/>
+                        <Span Text=" Authentication " TextColor="Blue" FontAttributes="Italic" FontSize="25"/>
+                        <Span Text="Demo" />
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        
+        <Frame Opacity="0.9" HasShadow="True"
+                       Padding="0"  BackgroundColor="Transparent"
+                       AbsoluteLayout.LayoutBounds="0.5,0.5,350,50" 
+                       AbsoluteLayout.LayoutFlags="PositionProportional"  >
+            <Entry Keyboard="Email" Text="{Binding Email}" Placeholder="email"
+                   PlaceholderColor="Goldenrod" >
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonState">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="white"/>
+                                <Setter Property="Opacity" Value="0.7"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Focused">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="white"/>
+                                <Setter Property="Opacity" Value="1"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Entry>
+        </Frame>
+        <Frame HasShadow="True" BorderColor="DarkOrange" CornerRadius="3"
+                       Padding="0"  BackgroundColor="Transparent"
+                       AbsoluteLayout.LayoutBounds="0.5,0.6,350,50"  
+               AbsoluteLayout.LayoutFlags="PositionProportional" >
+            <Entry Keyboard="Text" Text="{Binding Password}" 
+                   Placeholder="Password" PlaceholderColor="Goldenrod">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonState">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="white"/>
+                                <Setter Property="Opacity" Value="0.6"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Focused">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="white"/>
+                                <Setter Property="Opacity" Value="1"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Entry>
+        </Frame>
+        <StackLayout   AbsoluteLayout.LayoutFlags="PositionProportional" 
+                       AbsoluteLayout.LayoutBounds="0.5,0.75,350,50" >
+            <Button Text="Login"  Command="{Binding LoginCommand}"/>
+
+            <Button Text="Sign up" 
+                Command="{Binding RegisterCommand}"
+                BackgroundColor="OrangeRed" />
+
+          
+        </StackLayout>
+      
+
+    </AbsoluteLayout>
+</ContentPage>
