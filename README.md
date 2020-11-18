@@ -1,4 +1,4 @@
-## Xamarin-Forms-Firebase-Authentication-
+## Xamarin Forms Firebase Authentication
 
 This was suppose to be a donstration of how to do use mobile authentication using back4App on xamarin.
 
@@ -78,7 +78,7 @@ approach because it requires a little more code ,If you find yourself in scenari
 and I also recommend the first since its simpler and  most articles out there talk about it.and it might not always work ,i faced this issue before.
 
 
-Before we do the implementations we need to go to to firebase  
+Before we do the implementations we need to go to to firebase 
 
  1. Sign in
  2. create or add a new project for the app
@@ -313,3 +313,41 @@ namespace OFIForexSignalApp.iOS.Implementations.Auth
     }
 }
 ```
+
+
+at this point we are done with implementation on both platforms now what we need to this is use our shared class library to right the to perform authentication ..e.g on your LoginViewModel or LoginPage Code behind you can just add the logic login  the example below
+
+```
+ private async void LoginClicked(object obj)
+        {
+            if (!(string.IsNullOrEmpty(Email) && string.IsNullOrEmpty(Password)))
+            {
+                try
+                {
+                    var token = await DependencyService.Get<IFirebaseAuthenticator>().LoginWithEmailPasswordAsync(Email, Password);
+
+                    if (token == null)
+                    {
+                        await DIsplayError();
+                    }
+                    else
+                    {
+                        App.UserToken = token;
+                        CrossToastPopUp.Current.ShowToastSuccess("Login Successful");
+                        await Shell.Current.GoToAsync(SIGNALS_PAGE);
+                    }
+                }
+                catch (System.Exception ex)
+                {
+                    CrossToastPopUp.Current.ShowToastError(ex.Message);
+                    Debug.WriteLine(ex.Message);
+                }
+            }
+            else
+            {
+                await App.Current.MainPage.DisplayAlert("Error", "Please fill all fields", "Ok");
+            }
+        }
+```
+
+What basically happens is we use the dependencyService to get any class that is registerd as a in the dependacy container that implements IFirebasAuthenticator and it invokes the login method of  this classes and passes in the email and password we retrieve from the UI
