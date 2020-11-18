@@ -1,6 +1,6 @@
 ## Xamarin Forms Firebase Authentication
 
-This was suppose to be a donstration of how to do use mobile authentication using back4App on xamarin.
+This was suppose to bea domstration of how to authentication using back4App on xamarin.
 
 But my friend begged me to show him to do it on firebase which is now a very popular backend service for many mobile and frontend web developers 
 
