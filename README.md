@@ -78,7 +78,7 @@ approach because it requires a little more code ,If you find yourself in scenari
 and I also recommend the first since its simpler and  most articles out there talk about it.and it might not always work ,i faced this issue before.
 
 
-Before we do the implementations we need to go to to firebase 
+Before we do the implementations we need to go to to firebase  
 
  1. Sign in
  2. create or add a new project for the app
